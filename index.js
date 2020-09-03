@@ -6,7 +6,7 @@ const rateLimit = require('express-rate-limit');
 
 const app = express();
 
-const db = monk("mongodb+srv://cris:cris@cluster0-6psa9.gcp.mongodb.net/posts?retryWrites=true&w=majority")
+const db = monk(process.env.MONGO_URI);
 const posts = db.get('posts');
 
 const filter = new Filter();
